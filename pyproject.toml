@@ -1,0 +1,19 @@
+[project]
+name = "comfyui-chanjing-ai"
+description = "ComfyUI 蝉镜 AI 插件 - 对口型、声音克隆等 AI 能力"
+version = "1.0.0"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+    "opencv-python>=4.8.0",
+    "mutagen>=1.47.0",
+]
+
+[project.urls]
+Repository = "https://github.com/chandashi/chanjingAI-ComfyUI"
+
+[tool.comfy]
+PublisherId = "chandashi"
+DisplayName = "蝉镜 AI / Cicada AI"
+Icon = ""

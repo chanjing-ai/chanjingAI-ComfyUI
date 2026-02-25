@@ -1,0 +1,185 @@
+{
+  "id": "9bc16ace-a757-4514-a69b-63e54d144a4d",
+  "revision": 0,
+  "last_node_id": 4,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "LoadVideo",
+      "pos": [
+        355.20001220703125,
+        152.00010681152344
+      ],
+      "size": [
+        270,
+        344
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "image"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadAudio",
+      "pos": [
+        379.1999816894531,
+        621.60009765625
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        null,
+        null
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CicadaLipSyncNode",
+      "pos": [
+        713.6000366210938,
+        368.0000915527344
+      ],
+      "size": [
+        304.2330078125,
+        78
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_input",
+          "type": "*",
+          "link": 2
+        },
+        {
+          "name": "audio_input",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_url",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CicadaLipSyncNode"
+      },
+      "widgets_values": [
+        "蝉镜lip-sync pro"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CicadaVideoPlayerNode",
+      "pos": [
+        1091.2001342773438,
+        500.8000793457031
+      ],
+      "size": [
+        345.1666015625,
+        340
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_url",
+          "type": "STRING",
+          "widget": {
+            "name": "video_url"
+          },
+          "link": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "CicadaVideoPlayerNode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      1,
+      "AUDIO"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "VIDEO"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 1,
+      "offset": [
+        84.79998779296875,
+        14.39990234375
+      ]
+    },
+    "frontendVersion": "1.37.11"
+  },
+  "version": 0.4
+}
