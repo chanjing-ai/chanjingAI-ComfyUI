@@ -1000,16 +1000,16 @@ class CicadaLipSyncNode:
                 "audio_input": ("AUDIO", {
                     "tooltip": "音频（支持从上游节点传入ComfyUI音频对象）"
                 }),
-                "model": (["蝉镜lip-sync", "蝉镜lip-sync pro"], {
-                    "default": "蝉镜lip-sync pro",
-                    "tooltip": "蝉镜lip-sync pro 数字人唇齿更清晰，自然度与真实度显著提升"
+                "model": (["cicada-lip-sync", "cicada-lip-sync-pro"], {
+                    "default": "cicada-lip-sync-pro",
+                    "tooltip": "cicada-lip-sync-pro 数字人唇齿更清晰，自然度与真实度显著提升"
                 }),
-                "backway": (["正放", "倒放"], {
-                    "default": "正放",
+                "backway": (["forward", "reverse"], {
+                    "default": "forward",
                     "tooltip": "视频长度短于音频时的播放策略：正放-循环正向播放，倒放-播放到末尾后倒放回来"
                 }),
-                "drive_mode": (["正常驱动", "随机帧驱动"], {
-                    "default": "正常驱动",
+                "drive_mode": (["normal", "random"], {
+                    "default": "normal",
                     "tooltip": "正常驱动-从第一帧开始，随机帧驱动-从随机帧开始"
                 }),
             }
@@ -1018,7 +1018,7 @@ class CicadaLipSyncNode:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("video_url",)
     FUNCTION = "create_lip_sync"
-    CATEGORY = "蝉镜AI/Cicada AI"
+    CATEGORY = "Cicada AI"
     OUTPUT_NODE = False
 
     @staticmethod
@@ -1039,7 +1039,7 @@ class CicadaLipSyncNode:
             if cap is not None:
                 cap.release()
 
-    def create_lip_sync(self, video_input, audio_input, model, backway="正放", drive_mode="正常驱动"):
+    def create_lip_sync(self, video_input, audio_input, model, backway="forward", drive_mode="normal"):
         # 初始化进度条
         progress = CicadaProgress([
             ("准备", 5),
@@ -1076,8 +1076,8 @@ class CicadaLipSyncNode:
             print(f"✅ 视频尺寸: {w} x {h} (自动检测)")
 
         # 解析参数
-        backway_value = 2 if backway == "倒放" else 1
-        drive_mode_value = "random" if drive_mode == "随机帧驱动" else ""
+        backway_value = 2 if backway == "reverse" else 1
+        drive_mode_value = "random" if drive_mode == "random" else ""
         print(f"✅ 播放策略: {backway}（{backway_value}）")
         print(f"✅ 驱动模式: {drive_mode}（'{drive_mode_value}'）")
 
@@ -1095,7 +1095,7 @@ class CicadaLipSyncNode:
 
         # ---- 视频合成 ----
         progress.advance("视频合成")
-        model_value = 1 if model == "蝉镜lip-sync pro" else 0
+        model_value = 1 if model == "cicada-lip-sync pro" else 0
 
         result = api_json_request(
             "POST",
@@ -1223,8 +1223,8 @@ class CicadaVoiceCloneNode:
                     "step": 0.1,
                     "tooltip": "音调（0.1-3.0）"
                 }),
-                "use_cache": (["开启", "关闭"], {
-                    "default": "开启",
+                "use_cache": (["enabled", "disabled"], {
+                    "default": "enabled",
                     "tooltip": "开启后，相同音频+模型会复用已克隆的声音，跳过重复克隆节省时间"
                 }),
             }
@@ -1233,11 +1233,11 @@ class CicadaVoiceCloneNode:
     RETURN_TYPES = ("AUDIO",)
     RETURN_NAMES = ("audio",)
     FUNCTION = "clone_and_synthesize"
-    CATEGORY = "蝉镜AI/Cicada AI"
+    CATEGORY = "Cicada AI"
     OUTPUT_NODE = False
 
     def clone_and_synthesize(self, reference_audio_input, text,
-                            model_type, speed, pitch, use_cache="开启"):
+                            model_type, speed, pitch, use_cache="enabled"):
         if not text or not text.strip():
             raise ValueError("请输入要合成的文案")
 
@@ -1298,7 +1298,7 @@ class CicadaVoiceCloneNode:
             print("⚠️  无法获取音频时长，跳过时长检查")
 
         # 计算音频文件哈希（用于缓存判断，在裁剪之后计算）
-        enable_cache = (use_cache == "开启")
+        enable_cache = (use_cache == "enabled")
         audio_hash = file_content_hash(audio_path)
         print(f"✅ 参考音频: {os.path.basename(audio_path)}")
         print(f"🔑 音频指纹: {audio_hash[:12]}...")
@@ -1724,7 +1724,7 @@ class CicadaVideoPlayerNode:
 
     RETURN_TYPES = ()
     FUNCTION = "load_video"
-    CATEGORY = "蝉镜AI/Cicada AI"
+    CATEGORY = "Cicada AI"
     OUTPUT_NODE = True
 
     @classmethod
@@ -1792,7 +1792,7 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "CicadaLipSyncNode": "蝉镜AI对口型 (Cicada Lip Sync)",
-    "CicadaVoiceCloneNode": "蝉镜AI声音克隆 (Cicada Voice Clone)",
-    "CicadaVideoPlayerNode": "蝉镜视频播放器 (Cicada Video Player)",
+    "CicadaLipSyncNode": "Cicada Lip Sync",
+    "CicadaVoiceCloneNode": "Cicada Voice Clone",
+    "CicadaVideoPlayerNode": "Cicada Video Player",
 }

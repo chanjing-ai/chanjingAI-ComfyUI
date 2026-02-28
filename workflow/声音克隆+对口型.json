@@ -29,9 +29,12 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.15.0",
         "Node name for S&R": "LoadVideo"
       },
       "widgets_values": [
+        "image",
         "image"
       ]
     },
@@ -60,9 +63,12 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.15.0",
         "Node name for S&R": "LoadAudio"
       },
       "widgets_values": [
+        null,
         null,
         null
       ]
@@ -93,10 +99,55 @@
       ],
       "outputs": [],
       "properties": {
+        "aux_id": "zuoyuting214/chanjingAI-ComfyUI",
+        "ver": "769b8e42e2465634a937a418795ab50e28e01ba4",
         "Node name for S&R": "CicadaVideoPlayerNode"
       },
       "widgets_values": [
         ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CicadaVoiceCloneNode",
+      "pos": [
+        388.78567923146846,
+        509.2728770573142
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "reference_audio_input",
+          "type": "*",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "zuoyuting214/chanjingAI-ComfyUI",
+        "ver": "769b8e42e2465634a937a418795ab50e28e01ba4",
+        "Node name for S&R": "CicadaVoiceCloneNode"
+      },
+      "widgets_values": [
+        "\n",
+        "cicada3.0-turbo",
+        1,
+        1,
+        "enabled"
       ]
     },
     {
@@ -135,53 +186,14 @@
         }
       ],
       "properties": {
+        "aux_id": "zuoyuting214/chanjingAI-ComfyUI",
+        "ver": "769b8e42e2465634a937a418795ab50e28e01ba4",
         "Node name for S&R": "CicadaLipSyncNode"
       },
       "widgets_values": [
-        "蝉镜lip-sync pro",
-        "倒放",
-        "正常驱动"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CicadaVoiceCloneNode",
-      "pos": [
-        388.78567923146846,
-        509.2728770573142
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "reference_audio_input",
-          "type": "*",
-          "link": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "audio",
-          "type": "AUDIO",
-          "links": [
-            6
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CicadaVoiceCloneNode"
-      },
-      "widgets_values": [
-        "\n",
-        "cicada3.0-turbo",
-        1,
-        1,
-        "开启"
+        "cicada-lip-sync-pro",
+        "reverse",
+        "normal"
       ]
     }
   ],
@@ -226,11 +238,11 @@
     "ds": {
       "scale": 0.7302209033255571,
       "offset": [
-        211.08340708761463,
-        198.7357949734032
+        165.69902429458358,
+        225.30095821600014
       ]
     },
-    "frontendVersion": "1.38.13"
+    "frontendVersion": "1.36.14"
   },
   "version": 0.4
 }

@@ -27,6 +27,8 @@
       ],
       "outputs": [],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.15.0",
         "Node name for S&R": "PreviewAudio"
       },
       "widgets_values": []
@@ -57,9 +59,12 @@
       ],
       "title": "参考音频",
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.15.0",
         "Node name for S&R": "LoadAudio"
       },
       "widgets_values": [
+        null,
         null,
         null
       ]
@@ -95,6 +100,8 @@
         }
       ],
       "properties": {
+        "aux_id": "zuoyuting214/chanjingAI-ComfyUI",
+        "ver": "769b8e42e2465634a937a418795ab50e28e01ba4",
         "Node name for S&R": "CicadaVoiceCloneNode"
       },
       "widgets_values": [
@@ -102,7 +109,7 @@
         "cicada3.0-turbo",
         1,
         1,
-        "开启"
+        "enabled"
       ]
     }
   ],
@@ -135,7 +142,7 @@
         0
       ]
     },
-    "frontendVersion": "1.37.11"
+    "frontendVersion": "1.36.14"
   },
   "version": 0.4
 }

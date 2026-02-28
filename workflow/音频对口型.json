@@ -29,9 +29,12 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.15.0",
         "Node name for S&R": "LoadVideo"
       },
       "widgets_values": [
+        "image",
         "image"
       ]
     },
@@ -60,53 +63,14 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.15.0",
         "Node name for S&R": "LoadAudio"
       },
       "widgets_values": [
         null,
+        null,
         null
-      ]
-    },
-    {
-      "id": 3,
-      "type": "CicadaLipSyncNode",
-      "pos": [
-        713.6000366210938,
-        368.0000915527344
-      ],
-      "size": [
-        304.2330078125,
-        78
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "video_input",
-          "type": "*",
-          "link": 2
-        },
-        {
-          "name": "audio_input",
-          "type": "AUDIO",
-          "link": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "video_url",
-          "type": "STRING",
-          "links": [
-            3
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CicadaLipSyncNode"
-      },
-      "widgets_values": [
-        "蝉镜lip-sync pro"
       ]
     },
     {
@@ -135,10 +99,58 @@
       ],
       "outputs": [],
       "properties": {
+        "aux_id": "zuoyuting214/chanjingAI-ComfyUI",
+        "ver": "769b8e42e2465634a937a418795ab50e28e01ba4",
         "Node name for S&R": "CicadaVideoPlayerNode"
       },
       "widgets_values": [
         ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CicadaLipSyncNode",
+      "pos": [
+        713.6000366210938,
+        368.0000915527344
+      ],
+      "size": [
+        304.2330078125,
+        126
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_input",
+          "type": "*",
+          "link": 2
+        },
+        {
+          "name": "audio_input",
+          "type": "AUDIO",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_url",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "zuoyuting214/chanjingAI-ComfyUI",
+        "ver": "769b8e42e2465634a937a418795ab50e28e01ba4",
+        "Node name for S&R": "CicadaLipSyncNode"
+      },
+      "widgets_values": [
+        "cicada-lip-sync-pro",
+        "forward",
+        "normal"
       ]
     }
   ],
@@ -175,11 +187,11 @@
     "ds": {
       "scale": 1,
       "offset": [
-        84.79998779296875,
-        14.39990234375
+        -119.03204345703125,
+        10.76708984375
       ]
     },
-    "frontendVersion": "1.37.11"
+    "frontendVersion": "1.36.14"
   },
   "version": 0.4
 }
