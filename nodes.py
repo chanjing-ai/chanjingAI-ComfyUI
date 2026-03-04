@@ -995,22 +995,22 @@ class CicadaLipSyncNode:
         return {
             "required": {
                 "video_input": ("*", {
-                    "tooltip": "视频文件或路径（支持从上游节点传入视频对象或手动输入路径）"
+                    "tooltip": "Video file or path (supports video objects passed from upstream nodes or manually entered paths)"
                 }),
                 "audio_input": ("AUDIO", {
-                    "tooltip": "音频（支持从上游节点传入ComfyUI音频对象）"
+                    "tooltip": "cicada-lip-sync-pro provides clearer articulation and significantly improved naturalness and realism"
                 }),
                 "model": (["cicada-lip-sync", "cicada-lip-sync-pro"], {
                     "default": "cicada-lip-sync-pro",
-                    "tooltip": "cicada-lip-sync-pro 数字人唇齿更清晰，自然度与真实度显著提升"
+                    "tooltip": "cicada-lip-sync-pro provides clearer articulation and significantly improved naturalness and realism"
                 }),
                 "backway": (["forward", "reverse"], {
                     "default": "forward",
-                    "tooltip": "视频长度短于音频时的播放策略：正放-循环正向播放，倒放-播放到末尾后倒放回来"
+                    "tooltip": "Playback strategy when the video is shorter than the audio: forward — loop forward playback; reverse — play forward then reverse back"
                 }),
                 "drive_mode": (["normal", "random"], {
                     "default": "normal",
-                    "tooltip": "正常驱动-从第一帧开始，随机帧驱动-从随机帧开始"
+                    "tooltip": "Normal drive — starts from the first frame; Random drive — starts from a random frame"
                 }),
             }
         }
@@ -1198,34 +1198,34 @@ class CicadaVoiceCloneNode:
         return {
             "required": {
                 "reference_audio_input": ("*", {
-                    "tooltip": "参考音频文件或路径（要求：15秒-5分钟，支持 mp3/wav/m4a）"
+                    "tooltip": "Reference audio file or path (requirements: 15 seconds to 5 minutes, supports mp3/wav/m4a)"
                 }),
                 "text": ("STRING", {
                     "default": "",
                     "multiline": True,
-                    "placeholder": "输入要合成的文案（最多4000字）"
+                    "placeholder": "Enter the text to synthesize (up to 4000 characters)"
                 }),
                 "model_type": (["cicada3.0-turbo", "cicada3.0", "cicada1.0"], {
                     "default": "cicada3.0-turbo",
-                    "tooltip": "cicada1.0: 稳定高还原度 | cicada3.0: 情感表现力强 | cicada3.0-turbo: 增强稳定性"
+                    "tooltip": "cicada1.0: Stable and highly accurate | cicada3.0: Strong emotional expressiveness | cicada3.0-turbo: Enhanced stability"
                 }),
                 "speed": ("FLOAT", {
                     "default": 1.0,
                     "min": 0.5,
                     "max": 2.0,
                     "step": 0.1,
-                    "tooltip": "语速（0.5-2.0倍速）"
+                    "tooltip": "Speaking speed (0.5–2.0x)"
                 }),
                 "pitch": ("FLOAT", {
                     "default": 1.0,
                     "min": 0.1,
                     "max": 3.0,
                     "step": 0.1,
-                    "tooltip": "音调（0.1-3.0）"
+                    "tooltip": "Pitch (0.1–3.0)"
                 }),
                 "use_cache": (["enabled", "disabled"], {
                     "default": "enabled",
-                    "tooltip": "开启后，相同音频+模型会复用已克隆的声音，跳过重复克隆节省时间"
+                    "tooltip": "When enabled, identical audio + model will reuse the previously cloned voice to skip duplicate cloning and save time"
                 }),
             }
         }
@@ -1717,7 +1717,7 @@ class CicadaVideoPlayerNode:
                 "video_url": ("STRING", {
                     "default": "",
                     "multiline": False,
-                    "tooltip": "视频URL地址（可直接从蝉镜AI对口型节点输出连接）"
+                    "tooltip": "Video URL address (can be directly connected from the Cicada AI lip-sync node output)"
                 }),
             }
         }
